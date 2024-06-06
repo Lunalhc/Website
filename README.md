@@ -8,7 +8,7 @@
 
 {This project will not only helped me to learn the basic of JavaScript, but will also be useful for my presentation of the senior project at the end of the semester.}
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/kKytk5Ek0JM)
 
 # Development Environment
 
