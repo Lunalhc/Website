@@ -63,4 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
         video.pause();
         video.currentTime = 0;
     });
+
+
+// ------------------------------------------concepts page-------------------------------------------
+
+
+
+
+
+
 });
+
