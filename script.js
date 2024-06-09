@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let clickCount = 0;
 
 
+
+    // Log to confirm the script is running
+    console.log('Script running...');
+
+
+
     // when the cursor hover on tbe icon
     images.forEach(image => {
         image.addEventListener('mouseover', () => {
@@ -36,41 +42,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // when the user clicks on the gif image 3 times
-    gifImage.addEventListener('click', () => {
-        clickCount++;
-        if (clickCount === 3) {
-            videoContainer.style.display = 'flex';
-            videoContainer.style.position = 'fixed';
-            videoContainer.style.top = '0';
-            videoContainer.style.left = '0';
-            videoContainer.style.width = '100%';
-            videoContainer.style.height = '100%';
-            videoContainer.style.justifyContent = 'center';
-            videoContainer.style.alignItems = 'center';
-            videoContainer.style.zIndex = '1000';
-            videoContainer.style.background = 'rgba(0, 0, 0, 0.8)';
-            video.removeAttribute('muted');
-            video.play();
-            clickCount = 0; // Reset the count after showing the video
-        }
+   // Concepts page - Hide and show descriptions
+   const conceptNames = document.querySelectorAll('.concept-name');
+   const conceptDescriptions = document.querySelectorAll('.concept-description')
+
+    // Add click event listeners to concept names
+    conceptNames.forEach(name => {
+        name.addEventListener('click', () => {
+            const description = name.nextElementSibling;
+            
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block';
+            } else {
+                description.style.display = 'none';
+            }
+        });
     });
-    
+
+
+    // when the user clicks on the gif image 3 times
+    if (gifImage) {
+        gifImage.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 3) {
+                videoContainer.style.display = 'flex';
+                videoContainer.style.position = 'fixed';
+                videoContainer.style.top = '0';
+                videoContainer.style.left = '0';
+                videoContainer.style.width = '100%';
+                videoContainer.style.height = '100%';
+                videoContainer.style.justifyContent = 'center';
+                videoContainer.style.alignItems = 'center';
+                videoContainer.style.zIndex = '1000';
+                videoContainer.style.background = 'rgba(0, 0, 0, 0.8)';
+                video.removeAttribute('muted');
+                video.play();
+                clickCount = 0; // Reset the count after showing the video
+            }
+        });
+    }
 
     // the button to close the video window
-    closeVideoButton.addEventListener('click', () => {
-        videoContainer.style.display = 'none';
-        video.pause();
-        video.currentTime = 0;
-    });
-
-
-// ------------------------------------------concepts page-------------------------------------------
-
-
-
-
-
-
+    if (closeVideoButton) {
+        closeVideoButton.addEventListener('click', () => {
+            videoContainer.style.display = 'none';
+            video.pause();
+            video.currentTime = 0;
+        });
+    }
+    
 });
+
+
+
+
+
+
 

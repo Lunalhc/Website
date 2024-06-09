@@ -1,0 +1,71 @@
+/* Concepts page styles */
+body {
+    background: linear-gradient(135deg, #32a852, #32a8a8);
+    color: #ffffff;
+    margin: 0;
+    min-height: 100vh;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: left;
+    padding: 100px;
+    max-width: 1200px; 
+}
+
+#concepts-title {
+    font-size: 4em;
+    margin-top: 100px; 
+    color:#f2ec46;
+    margin-bottom: 30px;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    text-align: center; 
+    text-shadow: 
+        3px 3px 0 #0a0a0a,   
+        5px 5px 0 #1c29de, 
+        7px 7px 0 #00ffff; 
+}
+
+.concepts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: 10%;
+    margin-top: 10px; 
+}
+
+.concept-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.concept-name {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #fbf9f9;
+    font-family: "Acme", sans-serif;
+    cursor: pointer;
+    -webkit-text-stroke: 0.1px #040404; 
+}
+
+.concept-description {
+    font-size: 1.2em;
+    color: #060606;
+    font-family: "Acme", sans-serif;
+    display: none; /* Hide descriptions initially */
+}
+
+.section-title {
+    font-size: 1.3em;
+    color: #080808; 
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left; 
+}
+
+.concept-section {
+    margin-bottom: 20px;
+}
