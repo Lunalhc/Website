@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     url = 'concepts.html'; 
                     break;
                 case 'flowchart':
-                    url = 'https://www.youtube.com/'; // I will put the correct link here in the future
+                    url = 'flowchart.html'; // I will put the correct link here in the future
                     break;
                 case 'moreinfo':
                     url = 'https://www.youtube.com/'; // I will put the correct link here in the future
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             video.currentTime = 0;
         });
     }
-    
+
 });
 
 
