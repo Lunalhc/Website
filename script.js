@@ -85,6 +85,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    // Handle encryption method change
+    const encryptionMethod = document.getElementById('encryption-method');
+    const parametersContainer = document.getElementById('parameters-container');
+
+    if (encryptionMethod) {
+        encryptionMethod.addEventListener('change', () => {
+            parametersContainer.innerHTML = '';
+            switch (encryptionMethod.value) {
+                case 'caesar':
+                    parametersContainer.innerHTML = `
+                        <label for="shift">Shift:</label>
+                        <input type="number" id="shift" placeholder="Enter shift value">
+                    `;
+                    break;
+                case 'rsa':
+                    parametersContainer.innerHTML = `
+                        <label for="private key">Private Key:</label>
+                        <input type="text" id="key" placeholder="Enter key">
+                    `;
+                    break;
+                case 'aes':
+                    parametersContainer.innerHTML = `
+                        <label for="aes-key">AES Key:</label>
+                        <input type="text" id="aes-key" placeholder="Enter AES key">
+                    `;
+                    break;
+            }
+        });
+    }
+
 });
 
 

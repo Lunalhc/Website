@@ -27,6 +27,21 @@
             </div>
             
         </div>
+    
+    </div>
+
+    <div class="encryption-container">
+        <label for="encryption-method">Choose an encryption method:</label>
+        <select id="encryption-method">
+            <option value="caesar">Caesar Cipher</option>
+            <option value="rsa">RSA</option>
+            <option value="aes">AES</option>
+        </select>
+        <div id="parameters-container"></div>
+        <label for="plaintext">Enter Plaintext:</label>
+        <input type="text" id="plaintext" placeholder="Type your plaintext here">
+    </div>
+    
     </div>
     <div id="video-container">
         <video id="video" autoplay>
@@ -35,6 +50,10 @@
         </video>
         <button id="close-video">Close</button>
     </div>
+
+    
+
+
     <script src="script.js"></script>
 </body>
 
