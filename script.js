@@ -7,12 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let clickCount = 0;
 
 
-
-    // Log to confirm the script is running
-    console.log('Script running...');
-
-
-
     // when the cursor hover on tbe icon
     images.forEach(image => {
         image.addEventListener('mouseover', () => {
@@ -32,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     url = 'concepts.html'; 
                     break;
                 case 'flowchart':
-                    url = 'flowchart.html'; // I will put the correct link here in the future
+                    url = 'flowchart.html'; 
                     break;
                 case 'moreinfo':
                     url = 'https://www.youtube.com/'; // I will put the correct link here in the future
