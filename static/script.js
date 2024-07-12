@@ -6,7 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = document.getElementById('video');
     const closeVideoButton = document.getElementById('close-video');
     let clickCount = 0;
+    const encryptionMethod = document.getElementById('encryption-method');
+    const parametersContainer = document.getElementById('parameters-container');
+    const plaintextInput = document.getElementById('plaintext');
+    const resultContainer = document.getElementById('result-container');
+    const goButton = document.getElementById('go-button');
 
+    
     if (gifImage) {
         images.forEach(image => {
             image.addEventListener('mouseover', () => {
@@ -65,119 +71,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Encryption method change handler 
-    const encryptionMethod = document.getElementById('encryption-method');
-    const parametersContainer = document.getElementById('parameters-container');
+    
 
-    if (encryptionMethod) {
-        encryptionMethod.addEventListener('change', updateEncryptionParameters);
-    }
-
-    function updateEncryptionParameters() {
+    encryptionMethod.addEventListener('change', () => {
+        const method = encryptionMethod.value;
         parametersContainer.innerHTML = '';
-        switch (encryptionMethod.value) {
-            case 'caesar':
-                parametersContainer.innerHTML = `
-                    <label for="shift">Shift:</label>
-                    <input type="number" id="shift" placeholder="Enter shift value">
-                `;
-                break;
-            case 'rsa':
-                parametersContainer.innerHTML = `
-                    <div class="input-group">
-                        <label for="private-key">Private Key:</label>
-                        <input type="text" id="private-key" placeholder="Enter private key">
-                    </div>
-                    <div class="input-group">
-                        <label for="public-key">Public Key:</label>
-                        <input type="text" id="public-key" placeholder="Enter public key">
-                    </div>
-                `;
-                break;
-            case 'aes':
-                parametersContainer.innerHTML = `
-                    <label for="aes-key">AES Key:</label>
-                    <input type="text" id="aes-key" placeholder="Enter AES key">
-                `;
-                break;
+        if (method === 'caesar') {
+            parametersContainer.innerHTML = `
+                <label for="shift">Shift:</label>
+                <input type="number" id="shift" placeholder="Enter shift value">
+            `;
+            plaintextInput.style.display = 'block';
+            goButton.style.display = 'block';
+        } else if (method === 'rsa') {
+            parametersContainer.innerHTML = `
+                <div class="input-group">
+                    <label for="private-key">Private Key:</label>
+                    <input type="text" id="private-key" placeholder="Enter private key">
+                </div>
+                <div class="input-group">
+                    <label for="public-key">Public Key:</label>
+                    <input type="text" id="public-key" placeholder="Enter public key">
+                </div>
+            `;
+            plaintextInput.style.display = 'block';
+            goButton.style.display = 'block';
+        } else if (method === 'aes') {
+            parametersContainer.innerHTML = `
+                <label for="aes-key">AES Key:</label>
+                <input type="text" id="aes-key" placeholder="Enter AES key">
+            `;
+            plaintextInput.style.display = 'block';
+            goButton.style.display = 'block';
+        } else {
+            plaintextInput.style.display = 'none';
+            goButton.style.display = 'none';
         }
-    }
-});
+    });
 
-function encryptText() {
-    // Handle encryption method change
-    const encryptionMethod = document.getElementById('encryption-method');
-    const parametersContainer = document.getElementById('parameters-container');
-
-    if (encryptionMethod) {
-        encryptionMethod.addEventListener('change', () => {
-            parametersContainer.innerHTML = '';
-            switch (encryptionMethod.value) {
-                case 'caesar':
-                    parametersContainer.innerHTML = `
-                        <label for="shift">Shift:</label>
-                        <input type="number" id="shift" placeholder="Enter shift value">
-                    `;
-                    break;
-                case 'rsa':
-                    parametersContainer.innerHTML = `
-                    <div class="input-group">
-                        <label for="private-key">Private Key:</label>
-                        <input type="text" id="private-key" placeholder="Enter private key">
-                    </div>
-                    <div class="input-group">
-                        <label for="public-key">Public Key:</label>
-                        <input type="text" id="public-key" placeholder="Enter public key">
-                    </div>
-                
-                    `;
-                    break;
-                case 'aes':
-                    parametersContainer.innerHTML = `
-                        <label for="aes-key">AES Key:</label>
-                        <input type="text" id="aes-key" placeholder="Enter AES key">
-                    `;
-                    break;
-            }
-        });
-    }
-
-    // Ensure resultContainer is updated with results
-    function encryptText() {
+    goButton.addEventListener('click', () => {
+        const method = encryptionMethod.value;
+        const plaintext = plaintextInput.value;
         const shift = document.getElementById('shift') ? document.getElementById('shift').value : null;
         const privateKey = document.getElementById('private-key') ? document.getElementById('private-key').value : null;
         const publicKey = document.getElementById('public-key') ? document.getElementById('public-key').value : null;
         const aesKey = document.getElementById('aes-key') ? document.getElementById('aes-key').value : null;
-        const plaintext = plaintextInput.value;
 
-        let bodyData = {
-            plaintext: plaintext,
-            method: encryptionMethod.value,
+        const bodyData = {
+            method,
+            plaintext,
+            shift,
+            privateKey,
+            publicKey,
+            aesKey
         };
-
-        if (shift) bodyData.shift = shift;
-        if (privateKey && publicKey) {
-            bodyData.privateKey = privateKey;
-            bodyData.publicKey = publicKey;
-        }
-        if (aesKey) bodyData.aesKey = aesKey;
 
         fetch('/encrypt', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(bodyData)
         })
         .then(response => response.json())
         .then(data => {
             document.getElementById('result').textContent = data.encrypted;
-            resultContainer.style.display = 'block'; // Show results
+            resultContainer.style.display = 'block';
         })
         .catch(error => console.error('Error:', error));
-    }
-    
-}
+    });
+//-------------------------------concept page-----------------------------------------
+
 
     // Concepts page - Hide and show descriptions
     const conceptNames = document.querySelectorAll('.concept-name');
@@ -196,7 +158,7 @@ function encryptText() {
         });
     });
 
-
+});
     
 
 
