@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cryptography Journey</title>
+    <!-- The font I used -->
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="\static\style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="\static\homepage_gif_1.gif" alt="Gif Image" id="gif-image">
+        <h1 id="title">Welcome to My Cryptography Journey!</h1>
+        <div class="images-container">
+            <div class="image-wrapper" id="concepts">
+                <img src="\static\concepts_icon_1.jpg" alt="Concepts">
+                <span class="image-label">Concepts</span>
+            </div>
+            <div class="image-wrapper" id="flowchart">
+                <img src="\static\flowchart_icon_2.png" alt="Flowchart">
+                <span class="image-label">Flowchart</span>
+            </div>
+            <div class="image-wrapper" id="moreinfo">
+                <img src="\static\moreinfo_icon.jpg" alt="MoreInfo">
+                <span class="image-label">More Infomation?</span>
+            </div>
+            
+        </div>
+    
+    </div>
+
+    <div class="encryption-container">
+        <label for="encryption-method">Choose an encryption method:</label>
+        <select id="encryption-method">
+            <option value="" selected disabled>-- Select Encryption Method --</option>
+            <option value="caesar">Caesar Cipher</option>
+            <option value="rsa">RSA</option>
+            <option value="aes">AES</option>
+        </select>
+        <div id="parameters-container"></div>
+        <label for="plaintext" style="display: none;">Enter Plaintext:</label>
+        <input type="text" id="plaintext" placeholder="Type your plaintext here" style="display: none;">
+        <button id="go-button">Go</button> <!-- New Go button -->
+        <div id="result-container" style="display: none;"> <!-- Container for showing results -->
+        <label for="result">Result:</label>
+        <textarea id="result" readonly></textarea>
+        </div>
+    </div>
+    
+    </div>
+    <div id="video-container">
+        <video id="video" autoplay>
+            <source src="\static\secret_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="close-video">Close</button>
+    </div>
+
+    
+
+
+    <script src="\static\script.js"></script>
+</body>
+
+</html>
