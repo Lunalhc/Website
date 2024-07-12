@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Encryption method change handler (exists on a specific page only)
+    // Encryption method change handler 
     const encryptionMethod = document.getElementById('encryption-method');
     const parametersContainer = document.getElementById('parameters-container');
 
@@ -87,6 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="input-group">
                         <label for="private-key">Private Key:</label>
                         <input type="text" id="private-key" placeholder="Enter private key">
+                    </div>
+                    <div class="input-group">
                         <label for="public-key">Public Key:</label>
                         <input type="text" id="public-key" placeholder="Enter public key">
                     </div>
