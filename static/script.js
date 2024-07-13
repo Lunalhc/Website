@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const parametersContainer = document.getElementById('parameters-container');
     const plaintextInput = document.getElementById('plaintext');
     const resultContainer = document.getElementById('result-container');
+    const resultDisplay = document.getElementById('result'); // Make sure this ID exists in your HTML
     const goButton = document.getElementById('go-button');
 
-    
     if (gifImage) {
         images.forEach(image => {
             image.addEventListener('mouseover', () => {
@@ -71,11 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+//---------------------encryption-----------------------------------------------------------------------------------------------
     
-
+    // Encryption method selection handling
     encryptionMethod.addEventListener('change', () => {
+        parametersContainer.innerHTML = ''; // Clear previous inputs
         const method = encryptionMethod.value;
-        parametersContainer.innerHTML = '';
         if (method === 'caesar') {
             parametersContainer.innerHTML = `
                 <label for="shift">Shift:</label>
@@ -83,61 +84,45 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             plaintextInput.style.display = 'block';
             goButton.style.display = 'block';
-        } else if (method === 'rsa') {
-            parametersContainer.innerHTML = `
-                <div class="input-group">
-                    <label for="private-key">Private Key:</label>
-                    <input type="text" id="private-key" placeholder="Enter private key">
-                </div>
-                <div class="input-group">
-                    <label for="public-key">Public Key:</label>
-                    <input type="text" id="public-key" placeholder="Enter public key">
-                </div>
-            `;
-            plaintextInput.style.display = 'block';
-            goButton.style.display = 'block';
-        } else if (method === 'aes') {
-            parametersContainer.innerHTML = `
-                <label for="aes-key">AES Key:</label>
-                <input type="text" id="aes-key" placeholder="Enter AES key">
-            `;
-            plaintextInput.style.display = 'block';
-            goButton.style.display = 'block';
         } else {
+            // Placeholder for other methods
+            parametersContainer.innerHTML = '<p>Feature under development.</p>';
             plaintextInput.style.display = 'none';
             goButton.style.display = 'none';
         }
     });
 
+    // Encrypt text when "Go" button is clicked
     goButton.addEventListener('click', () => {
-        const method = encryptionMethod.value;
+        if (encryptionMethod.value === 'caesar') {
+            encryptCaesarCipher();
+        }
+    });
+
+    function encryptCaesarCipher() {
+        const shift = parseInt(document.getElementById('shift').value) || 0;
         const plaintext = plaintextInput.value;
-        const shift = document.getElementById('shift') ? document.getElementById('shift').value : null;
-        const privateKey = document.getElementById('private-key') ? document.getElementById('private-key').value : null;
-        const publicKey = document.getElementById('public-key') ? document.getElementById('public-key').value : null;
-        const aesKey = document.getElementById('aes-key') ? document.getElementById('aes-key').value : null;
-
-        const bodyData = {
-            method,
-            plaintext,
-            shift,
-            privateKey,
-            publicKey,
-            aesKey
-        };
-
-        fetch('/encrypt', {
+        fetch('http://127.0.0.1:5000/encrypt', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(bodyData)
+            body: JSON.stringify({ plaintext, shift })
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('result').textContent = data.encrypted;
+            resultDisplay.textContent = data.encrypted;
             resultContainer.style.display = 'block';
         })
-        .catch(error => console.error('Error:', error));
-    });
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+
+        
+
+    
+
+
 //-------------------------------concept page-----------------------------------------
 
 
