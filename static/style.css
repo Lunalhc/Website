@@ -137,12 +137,28 @@ body {
 #result-container {
     margin-top: 10px;
     width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the result box if it's not full width */
 }
 
 #result {
-    width: 100%;
+    font-size: 1.5em; /* Bigger text */
+    font-weight: bold; /* Make text bold */
+    color: #090909; /* Golden text color */
+    width: 80%; /* Adjust width as per your design */
     height: 100px;
     padding: 10px;
     box-sizing: border-box; /* Makes sure padding does not add to width */
+    border: 2px solid #ffd700; /* Golden border */
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
     resize: none; /* Prevents resizing the textarea */
+    box-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold; /* Glowing golden shadow */
+    border-radius: 10px; /* Optional: rounds the corners */
+    text-shadow: 0 0 3px gold; /* Subtle text shadow for a glowing effect */
+    transition: all 0.3s ease; /* Smooth transition for focus effect */
+}
+
+#result:focus {
+    box-shadow: 0 0 8px gold, 0 0 12px gold, 0 0 20px gold; /* Enhanced glow on focus */
+    outline: none; /* Removes the default focus outline */
 }
