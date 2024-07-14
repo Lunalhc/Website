@@ -16,6 +16,14 @@ def encrypt():
     encrypted_text = caesar_cipher(plaintext, shift)
     return jsonify(encrypted=encrypted_text)
 
+@app.route('/decrypt', methods=['POST'])
+def decrypt():
+    data = request.get_json()
+    ciphertext = data['ciphertext']
+    shift = int(data['shift'])
+    decrypted_text = caesar_decipher(ciphertext, shift)
+    return jsonify(decrypted=decrypted_text)
+
 def caesar_cipher(text, shift):
     result = ""
     for i in range(len(text)):
@@ -31,6 +39,9 @@ def caesar_cipher(text, shift):
             # If it's not a letter, just add it as is
             result += char
     return result
+
+def caesar_decipher(text, shift):
+    return caesar_cipher(text, -shift) 
 
 
 if __name__ == "__main__":

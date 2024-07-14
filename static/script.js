@@ -6,12 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = document.getElementById('video');
     const closeVideoButton = document.getElementById('close-video');
     let clickCount = 0;
+
     const encryptionMethod = document.getElementById('encryption-method');
     const parametersContainer = document.getElementById('parameters-container');
     const plaintextInput = document.getElementById('plaintext');
     const resultContainer = document.getElementById('result-container');
     const resultDisplay = document.getElementById('result'); // Make sure this ID exists in your HTML
     const goButton = document.getElementById('go-button');
+
+    const decryptionMethod = document.getElementById('decryption-method');
+    const decryptionParametersContainer = document.getElementById('decryption-parameters-container');
+    const ciphertextInput = document.getElementById('ciphertext');
+    const decryptionResultContainer = document.getElementById('decryption-result-container');
+    const decryptButton = document.getElementById('decrypt-button');
 
     if (gifImage) {
         images.forEach(image => {
@@ -118,8 +125,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+//---------------------decryption-----------------------------------------------
         
+decryptionMethod.addEventListener('change', () => {
+        decryptionParametersContainer.innerHTML = '';
+        ciphertextInput.style.display = 'none';
+        decryptButton.style.display = 'none';
 
+        if (decryptionMethod.value === 'caesar') {
+            decryptionParametersContainer.innerHTML = `
+                <label for="shift">Shift:</label>
+                <input type="number" id="decrypt-shift" placeholder="Enter shift value">
+            `;
+            ciphertextInput.style.display = 'block';
+            decryptButton.style.display = 'block';
+        }
+    });
+    decryptButton.addEventListener('click', () => {
+        const shift = parseInt(document.getElementById('decrypt-shift').value);
+        const ciphertext = ciphertextInput.value;
+
+        // Adjust the path if necessary
+        fetch('/decrypt', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                ciphertext: ciphertext,
+                shift: shift
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('decryption-result').textContent = data.decrypted;
+            decryptionResultContainer.style.display = 'block';
+        })
+        .catch(error => console.error('Error:', error));
+    });
     
 
 
