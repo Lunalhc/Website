@@ -75,7 +75,14 @@ body {
     display: block;
 }
 
-.encryption-container {
+.crypto-container {
+    display: flex;
+    justify-content: space-around; /* This will space out the encryption and decryption sections evenly */
+    width: 100%;
+}
+
+.encryption-container,
+.decryption-container {
     margin-top: 20px;
     text-align: center; 
     width: 100%; 
@@ -88,9 +95,21 @@ body {
     font-size: 1.2em;
     margin-right: 10px;
 }
+.decryption-container label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
 
 .encryption-container select,
 .encryption-container input {
+    padding: 10px;
+    font-size: 1em;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 300px;
+}
+.decryption-container select,
+.decryption-container input {
     padding: 10px;
     font-size: 1em;
     margin: 10px 0;
@@ -127,7 +146,13 @@ body {
     font-size: 1em;
 }
 
-#go-button {
+#go-button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+#decrypt-button{
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 1em;
@@ -162,3 +187,4 @@ body {
     box-shadow: 0 0 8px gold, 0 0 12px gold, 0 0 20px gold; /* Enhanced glow on focus */
     outline: none; /* Removes the default focus outline */
 }
+

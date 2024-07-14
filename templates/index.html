@@ -30,6 +30,7 @@
     
     </div>
 
+<div class="crypto-container">
     <div class="encryption-container">
         <label for="encryption-method">Choose an encryption method:</label>
         <select id="encryption-method">
@@ -47,6 +48,24 @@
         <textarea id="result" readonly></textarea>
         </div>
     </div>
+    <div class="decryption-container">
+        <label for="decryption-method">Choose a decryption method:</label>
+        <select id="decryption-method">
+            <option value="" selected disabled>-- Select Decryption Method --</option>
+            <option value="caesar">Caesar Cipher</option>
+            <option value="rsa">RSA</option>
+            <option value="aes">AES</option>
+        </select>
+        <div id="decryption-parameters-container"></div>
+        <label for="ciphertext" style="display: none;">Enter Ciphertext:</label>
+        <input type="text" id="ciphertext" placeholder="Type your ciphertext here" style="display: none;">
+        <button id="decrypt-button">Decrypt</button>
+        <div id="decryption-result-container" style="display: none;">
+            <label for="decryption-result">Result:</label>
+            <textarea id="decryption-result" readonly></textarea>
+        </div>
+    </div>
+</div>
     
     </div>
     <div id="video-container">
