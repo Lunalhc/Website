@@ -37,15 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 switch (image.id) {
                     case 'concepts':
                         url = 'concepts.html'; 
+                        window.location.href = '/concepts';
                         break;
                     case 'flowchart':
                         url = 'flowchart.html'; 
+                        window.location.href = '/flowchart';
                         break;
                     case 'moreinfo':
                         url = 'https://www.youtube.com/';
                         break;
                 }
-                window.location.href = url;
+                
             });
         });
 
@@ -127,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //---------------------decryption-----------------------------------------------
         
-decryptionMethod.addEventListener('change', () => {
+    decryptionMethod.addEventListener('change', () => {
         decryptionParametersContainer.innerHTML = '';
         ciphertextInput.style.display = 'none';
         decryptButton.style.display = 'none';
@@ -165,26 +167,25 @@ decryptionMethod.addEventListener('change', () => {
 
 
 //-------------------------------concept page-----------------------------------------
-
-
-    // Concepts page - Hide and show descriptions
     const conceptNames = document.querySelectorAll('.concept-name');
-    const conceptDescriptions = document.querySelectorAll('.concept-description')
+    if (conceptNames.length > 0) {
+        setupConceptPageListeners(conceptNames);
+    }
 
-    // Add click event listeners to concept names
-    conceptNames.forEach(name => {
-        name.addEventListener('click', () => {
-            const description = name.nextElementSibling;
-            
-            if (description.style.display === 'none' || description.style.display === '') {
-                description.style.display = 'block';
-            } else {
-                description.style.display = 'none';
-            }
+    function setupConceptPageListeners(conceptNames) {
+        conceptNames.forEach(name => {
+            name.addEventListener('click', () => {
+                const description = name.nextElementSibling;
+                if (description.style.display === 'none' || description.style.display === '') {
+                    description.style.display = 'block';
+                } else {
+                    description.style.display = 'none';
+                }
+            });
         });
-    });
-
+    }
 });
+
     
 
 

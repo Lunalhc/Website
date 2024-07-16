@@ -44,5 +44,16 @@ def caesar_decipher(text, shift):
     return caesar_cipher(text, -shift) 
 
 
+#-----------------------------------------------------------------------------------------------------------------------------
+
+@app.route('/concepts')
+def concepts():
+    return render_template('concepts.html')
+
+@app.route('/flowchart')
+def flowchart():
+    return render_template('flowchart.html')
+
+#---------------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
     app.run(debug=True)
