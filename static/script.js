@@ -164,6 +164,33 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error:', error));
     });
     
+//------------------------------------------------------------------------------------------------------------------------------------------
+const crackButton = document.getElementById('crack-button');
+    const cipherTextInput = document.getElementById('cipher-text');
+    const crackerResultsDisplay = document.getElementById('cracker-results');
+    const crackerResultsContainer = document.getElementById('cracker-results-container');
+
+    // Event listener for the Crack button
+    crackButton.addEventListener('click', () => {
+        const cipherText = cipherTextInput.value;
+        fetch('/crack', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ cipher_text: cipherText })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const formattedResults = data.map(d => `Shift: ${d.shift}, Decoded: ${d.decoded}, Words: ${d.word_count}`).join('\n');
+            crackerResultsDisplay.textContent = formattedResults;
+            crackerResultsContainer.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            crackerResultsDisplay.textContent = 'Error cracking the cipher text.';
+            crackerResultsContainer.style.display = 'block';
+        });
+    });
+
 
 
 

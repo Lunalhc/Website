@@ -82,7 +82,8 @@ body {
 }
 
 .encryption-container,
-.decryption-container {
+.decryption-container,
+.cracker-container {
     margin-top: 20px;
     text-align: center; 
     width: 100%; 
@@ -99,6 +100,11 @@ body {
     font-size: 1.2em;
     margin-right: 10px;
 }
+.cracker-container label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
 
 .encryption-container select,
 .encryption-container input {
@@ -110,6 +116,15 @@ body {
 }
 .decryption-container select,
 .decryption-container input {
+    padding: 10px;
+    font-size: 1em;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.cracker-container select,
+.cracker-container input {
     padding: 10px;
     font-size: 1em;
     margin: 10px 0;
@@ -158,6 +173,12 @@ body {
     font-size: 1em;
     cursor: pointer;
 }
+#crack-button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
 
 #result-container {
     margin-top: 10px;
@@ -166,7 +187,7 @@ body {
     justify-content: center; /* Centers the result box if it's not full width */
 }
 
-#result,#decryption-result{
+#result,#decryption-result,#cracker-results{
     font-size: 1.5em; /* Bigger text */
     font-weight: bold; /* Make text bold */
     color: #090909; /* Golden text color */
@@ -183,7 +204,9 @@ body {
     transition: all 0.3s ease; /* Smooth transition for focus effect */
 }
 
-#result:focus,#decryption-result:focus {
+#result:focus,
+#decryption-result:focus,
+#cracker-results:focus {
     box-shadow: 0 0 8px gold, 0 0 12px gold, 0 0 20px gold; /* Enhanced glow on focus */
     outline: none; /* Removes the default focus outline */
 }
