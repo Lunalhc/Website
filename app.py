@@ -72,6 +72,10 @@ def concepts():
 def flowchart():
     return render_template('flowchart.html')
 
+@app.route('/moreinfo')
+def moreinfo():
+    return render_template('moreinfo.html')
+
 #---------------------------------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":

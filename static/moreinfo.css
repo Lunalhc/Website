@@ -1,0 +1,39 @@
+body {
+    background-color: #87CEEB; /* Sky bluish background */
+    font-family: Arial, sans-serif; /* Sets a clean, readable font */
+    color: #333; /* Dark text for readability */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px; /* Limits the width of the content */
+    margin: auto; /* Centers the container */
+    padding: 20px;
+    background: #fff; /* Light background for the content area */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+h1 {
+    color: #2A4D69; /* A darker blue for headers */
+    text-align: center;
+}
+
+.links-list {
+    list-style: none; /* Removes default list styling */
+    padding: 0;
+}
+
+.links-list li {
+    margin-bottom: 10px; /* Adds space between items */
+}
+
+.links-list a {
+    color: #1A73E8; /* A pleasant blue for links */
+    text-decoration: none; /* Removes underline */
+}
+
+.links-list a:hover {
+    text-decoration: underline; /* Underlines links on hover for interactivity */
+}

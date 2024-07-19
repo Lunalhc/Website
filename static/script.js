@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         window.location.href = '/flowchart';
                         break;
                     case 'moreinfo':
-                        url = 'https://www.youtube.com/';
+                        url = 'moreinfo.html';
+                        window.location.href = '/moreinfo';
                         break;
                 }
                 
