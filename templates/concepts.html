@@ -155,7 +155,86 @@
             </div>
 
             <!-- D Section -->
-             
+            <div class="concept-section">
+                <h2 class="section-title">D:</h2>
+                <div class="concept-item" data-name="DES">
+                    <span class="concept-name">DES:</span>
+                    <span class="concept-description">Symmetric, 56-bit key length. Encrypts data in 64-bit blocks, performs 16 rounds of encryption using a Feistel network structure, has become less secure over time due to advances in computing power.</span>
+                </div>
+                <div class="concept-item" data-name="DES-PCBC">
+                    <span class="concept-name">DES-PCBC mode:</span>
+                    <span class="concept-description"> propagating cipher block chaining.A modified version of CBC mode, designed to propagate errors in multiple output blocks of the ciphertext.</span>
+                </div>
+                <div class="concept-item" data-name="DES-CFB">
+                    <span class="concept-name">DES-CFB (cipher feedback) mode:</span>
+                    <span class="concept-description">Used as a pseudo-random number generator. Generates a key stream z<sub>i</sub>.</span>
+                </div>
+                <div class="concept-item" data-name="DES-OFB">
+                    <span class="concept-name">DES-OFB (output feedback) mode:</span>
+                    <span class="concept-description">Similar to CFB. The shift register is loaded with block cipher output. The block cipher is used as a true synchronous stream cipher (the key stream no longer depends on the plaintext x<sub>i</sub>).</span>
+                </div>
+                <div class="concept-item" data-name="DES-CTR">
+                    <span class="concept-name">DES-CTR (counter) mode:</span>
+                    <span class="concept-description">Similar to CFB. Uses a block cipher as pseudo-random number generator, which does not require past ciphertext values to encrypt the current input to the block cipher. Allows for simultaneous processing of multiple input blocks. Typically used in ATM applications. Uses LFSR (loaded with IV) of the same size as the block cipher to generate block cipher input.</span>
+                </div>
+                <div class="concept-item" data-name="Differential Cryptanalysis attack">
+                    <span class="concept-name">Differential Cryptanalysis attack:</span>
+                    <span class="concept-description">Could be chosen-plaintext attack, known-plaintext attack, or ciphertext-only attack. For chosen-plaintext attack, attacker chooses plaintext x<sub>1</sub> and x<sub>2</sub> and observes the resultant ciphertext y<sub>1</sub> and y<sub>2</sub>. Then computes delta x = x<sub>1</sub> XOR x<sub>2</sub> and delta y = y<sub>1</sub> XOR y<sub>2</sub>, which termed a differential. Then use statistical analysis to find which keys are more probable.</span>
+                </div>
+                <div class="concept-item" data-name="Discrete logarithm problem">
+                    <span class="concept-name">Discrete logarithm problem:</span>
+                    <span class="concept-description">Given G (a cyclic group based on set Z<sub>p*</sub>, the operation is multiplication), alpha (generator), and beta = alpha<sup>i</sup> (mod p), find i = log<sub>alpha</sub>beta (mod p).</span>
+                </div>
+                <div class="concept-item" data-name="Diffie-Hellman Key Agreement Protocol">
+                    <span class="concept-name">Diffie-Hellman Key Agreement Protocol:</span>
+                    <span class="concept-description">May be used in discrete logarithm problem. Two stages: set-up and key establishment. <strong>Set-up:</strong> Choose a large p (typically implemented via Monte Carlo algorithm). Then choose a generator alpha in Z<sub>p*</sub>; p and alpha are public known. <strong>Key establishment:</strong> Establish a shared secret between 2 parties. Public keys are K<sub>PUB_A</sub> = b<sub>A</sub> = alpha(x)<sup>a<sub>A</sub></sup> (mod P(x)), K<sub>PUB_B</sub> = b<sub>B</sub> = alpha(x)<sup>a<sub>B</sub></sup> (mod P(x)) where x is plaintext, P(x) is irreducible polynomial, a<sub>A</sub> and a<sub>B</sub> are private keys. And the session key is K<sub>AB</sub> = alpha(x)<sup>a<sub>A</sub> b<sub>B</sub></sup>. After key establishment stage, the session key K<sub>AB</sub> is shared. So the Diffie-Hellman problem states that given alpha, b<sub>A</sub> = alpha(x)<sup>a<sub>A</sub></sup> (mod p), b<sub>B</sub> = alpha(x)<sup>a<sub>B</sub></sup> (mod p), find alpha<sup>a<sub>A</sub> a<sub>B</sub></sup> (mod p). One method is to solve one of the discrete logarithm problems for either a<sub>A</sub> = log<sub>alpha</sub>b<sub>A</sub> (mod p) or a<sub>B</sub> = log<sub>alpha</sub>b<sub>B</sub> (mod p). Once either a<sub>A</sub> or a<sub>B</sub> is known, alpha<sup>a<sub>A</sub> a<sub>B</sub></sup> (mod p) = (b<sub>B</sub>)<sup>a<sub>A</sub></sup> (mod p) = (b<sub>A</sub>)<sup>a<sub>B</sub></sup> (mod p).</span>
+                </div>
+            </div>
+
+            <!-- E Section -->
+            <div class="concept-section">
+                <h2 class="section-title">E:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Extension Field:</span>
+                    <span class="concept-description">GF(p<sup>m</sup>). Extended by exponentiating the p by an integer m. Typically represented as polynomials with m coefficients, where each coefficient is an element of GF(p). Example: GF(2<sup>4</sup>) = a<sub>3</sub>x<sup>3</sup> + a<sub>2</sub>x<sup>2</sup> + a<sub>1</sub>x + a<sub>0</sub>, and each coefficient a<sub>i</sub> is an element of GF(2) = {0,1}.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Euclidean algorithm:</span>
+                    <span class="concept-description">Compute the gcd(r<sub>0</sub>, r<sub>1</sub>) = r<sub>m</sub> in terms of r<sub>2</sub> and r<sub>3</sub>. Where r<sub>0</sub>, r<sub>1</sub>, r<sub>2</sub> are integers, and r<sub>0</sub> > r<sub>1</sub>, r<sub>2</sub> is the remainder.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Extended Euclidean algorithm:</span>
+                    <span class="concept-description">Based on the theory that gcd(r<sub>0</sub>,r<sub>1</sub>) = r<sub>m</sub> = s*r<sub>0</sub> + t*r<sub>1</sub> where s and t are integers. Then s<sub>i</sub> = s<sub>i-2</sub> - q<sub>i-1</sub> * s<sub>i-1</sub> and t<sub>i</sub> = t<sub>i-2</sub> - q<sub>i-1</sub> * t<sub>i-1</sub> with initial conditions s<sub>0</sub> = 1, s<sub>1</sub> = 0, t<sub>0</sub> = 0, t<sub>1</sub> = 1. t value has to be in ring Z<sub>m</sub>.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Euler’s phi function:</span>
+                    <span class="concept-description">Used to determine the number of integers in the ring Z<sub>m</sub> that are relatively prime to m. m can be represented by the product of prime numbers of the form m = P<sub>1</sub><sup>e<sub>1</sub></sup> * P<sub>2</sub><sup>e<sub>2</sub></sup> * … * P<sub>n</sub><sup>e<sub>n</sub></sup> where each P<sub>i</sub> is a different prime number and each e<sub>i</sub> is an integer.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Euler’s theorem:</span>
+                    <span class="concept-description">If gcd(a,m) = 1, then a<sup>phi(m)</sup> = 1 mod m. Then a<sup>-1</sup> = a<sup>phi(m)-1</sup> mod m.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Exponentiation in RSA:</span>
+                    <span class="concept-description">Repeated application of group operation, e.g., multiplication to an element x in the Ring Z<sub>n</sub>.</span>
+                </div>
+                </div>            
+            </div>
+
+            <!-- F Section -->
+            <div class="concept-section">
+                <h2 class="section-title">F:</h2>
+            </div>
+
+            <!-- G Section -->
+            <div class="concept-section">
+                <h2 class="section-title">G:</h2>
+            </div>
+
+            <!-- H Section -->
+            <div class="concept-section">
+                <h2 class="section-title">H:</h2>
+            </div>
 
         </div>
     </div>
