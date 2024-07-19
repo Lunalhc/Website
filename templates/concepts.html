@@ -18,46 +18,144 @@
             <div class="concept-section">
                 <h2 class="section-title">A:</h2>
                 <div class="concept-item" data-name="Concept 1">
-                    <span class="concept-name">Concept 1:</span>
-                    <span class="concept-description">Explanation of Concept 1.</span>
+                    <span class="concept-name">Affine transformation:</span>
+                    <span class="concept-description">multiplication by a matrix then addition of a vector.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 2">
+                    <span class="concept-name">AES:</span>
+                    <span class="concept-description">a kind of block symmetric cipher.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 3">
+                    <span class="concept-name">AES-Cipher key:</span>
+                    <span class="concept-description">a rectangular array of bytes, having 4 row and Nk columns.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 4">
+                    <span class="concept-name">AES-Key expansion:</span>
+                    <span class="concept-description">generate a series of round keys from cipher key.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 5">
+                    <span class="concept-name">AES-S-box:</span>
+                    <span class="concept-description">nonlinear one-for-one substitution table in key expansion.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 6">
+                    <span class="concept-name">AES-Nk:</span>
+                    <span class="concept-description">number of 32-bit words.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 7">
+                    <span class="concept-name">AES-Nb:</span>
+                    <span class="concept-description">Number of columns.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 8">
+                    <span class="concept-name">AES-Nr:</span>
+                    <span class="concept-description">Number of rounds, a function of Nk and Nb.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 9">
+                    <span class="concept-name">Avalanche property:</span>
+                    <span class="concept-description">Change to the input, no matter how small, creates a large and unpredictable change in the output.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 10">
+                    <span class="concept-name">Affine cipher:</span>
+                    <span class="concept-description">A special case of shift cipher; defined by P = Z<sub>I</sub>, C = Z<sub>I</sub>, x∈P, y∈C, k = (a,b) ∈Z<sub>I</sub> where I is the number of letters in the alphabet; Encryption e<sub>k</sub>(x) = (a*x + b) mod I = y, decryption d<sub>k</sub>(y) = (a<sup>-1</sup>*(y-b)) mod I = x; K = phi(I) * I.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 11">
+                    <span class="concept-name">AES-CBC mode:</span>
+                    <span class="concept-description">cipher block chaining.Uses the xor property; XOR operation is its own inverse, meaning that (A ⊕ B) ⊕ B = A. P’[n] = P[n] ⊕ C[n-1], then apply AES encryption to P′[n]. Every block is dependent on the blocks that came before. Changes to any input block thus affect the output block for all subsequent blocks. Does not affect any preceding blocks.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 12">
+                    <span class="concept-name">ANSI X.923:</span>
+                    <span class="concept-description">Another padding method where all appended bytes are 0, except for the last byte, which is the length of the total padding. For example, 3 bytes of padding is \x00\x00\x03.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 13">
+                    <span class="concept-name">AES-CTR mode:</span>
+                    <span class="concept-description">Counter mode; behaves like a stream cipher. Does not use AES for encryption or decryption of the data. Uses AES and a counter to generate a key stream that is the same length as the plaintext and then uses XOR to combine them together. To get 16 more bytes of key stream, the mode increases the counter by one and encrypts the updated 16 bytes. It only guarantees confidentiality.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 14">
+                    <span class="concept-name">Asynchronous key stream generator:</span>
+                    <span class="concept-description"><span class="concept-description">Uses ciphertext y<sub>i</sub> as feedback term.</span>
+                </span>
+                </div>
+                <div class="concept-item" data-name="Concept 15">
+                    <span class="concept-name">A5 cipher:</span>
+                    <span class="concept-description">Based on clocked LFSRs, used in mobile applications. Has been broken.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 16">
+                    <span class="concept-name">AES-CMAC mode:</span>
+                    <span class="concept-description">Generates a MAC to verify the integrity of the data being transmitted. Approved by NIST for use with AES and Triple-AES. Three processes: sub-key generation, MAC generation, MAC verification.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 17">
+                    <span class="concept-name">AES- CCM mode:</span>
+                    <span class="concept-description"> counter with cipher block chaining-message authentication code.Used in systems where all of the data is available prior to its use. Only approved for use with block ciphers with 128-bit block sizes. Accepts a 3-part input: payload, associated information, nonce. Applies CBC mode with IV of 0 to the payload, associated information, and nonce to generate MAC. Then uses CTR mode to encrypt payload and MAC to create ciphertext.</span>
                 </div>
             </div>
 
             <!-- B Section -->
             <div class="concept-section">
                 <h2 class="section-title">B:</h2>
+                <div class="concept-item" data-name="Concept 1">
+                    <span class="concept-name">Blockchain:</span>
+                    <span class="concept-description">a “distributed ledger. The system is a ledger because it records information related to transactions between participants. contents are stored across the set of participants and not in any central location.</span>
+                </div>
                 <div class="concept-item" data-name="Concept 2">
-                    <span class="concept-name">Concept 2:</span>
-                    <span class="concept-description">Explanation of Concept 2.</span>
+                    <span class="concept-name">Block:</span>
+                    <span class="concept-description">Every transaction must be stored in a block. It’s just a collection of data. Each transaction within the block must be digitally signed by the transactor. The overall block structure is protected by a hash. Blocks are copied to the entire set of participants.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 3">
+                    <span class="concept-name">Block ciphers:</span>
+                    <span class="concept-description">One type of symmetric-key algorithms. Operate on a block of data. AES is a block cipher.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 4">
+                    <span class="concept-name">Block reward:</span>
+                    <span class="concept-description">Given to the block creator (miner). No sender/signature. Added to total supply. The longest chain will be trusted.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 5">
+                    <span class="concept-name">Binary extended Euclidean algorithm:</span>
+                    <span class="concept-description">Implemented by a right-shift of the data by n bit positions when dividing by 2<sup>n</sup>. Can be used to compute gcd(r<sub>1</sub>,r<sub>0</sub>) and the inverse of r<sub>1</sub> if it exists.</span>
                 </div>
             </div>
 
             <!-- C Section -->
             <div class="concept-section">
                 <h2 class="section-title">C:</h2>
+                <div class="concept-item" data-name="Concept 1">
+                    <span class="concept-name">Collision resistance:</span>
+                    <span class="concept-description">It’s hard to find any two inputs that produce the same output.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 2">
+                    <span class="concept-name">Candidate Block:</span>
+                    <span class="concept-description">The miners take some set of requested transactions (there is a limited number per block) and create a candidate block. This block isn't the next block in the blockchain until the miner can solve a cryptographic puzzle to find a special kind of SHA-256 hash value.</span>
+                </div>
                 <div class="concept-item" data-name="Concept 3">
-                    <span class="concept-name">Concept 3:</span>
-                    <span class="concept-description">Explanation of Concept 3.</span>
+                    <span class="concept-name">Ciphertext-only attack:</span>
+                    <span class="concept-description">Attacker knows the ciphertexts y<sub>1</sub> = ek(x<sub>1</sub>), y<sub>2</sub> = ek(x<sub>2</sub>),…, and wants to know the plaintexts x<sub>1</sub>, x<sub>2</sub>,… or the key k.</span>
                 </div>
                 <div class="concept-item" data-name="Concept 4">
-                    <span class="concept-name">Concept 4:</span>
-                    <span class="concept-description">Explanation of Concept 4:</span>
+                    <span class="concept-name">Chosen-Plaintext attack:</span>
+                    <span class="concept-description">Attacker knows some plaintext-ciphertext pairs (x<sub>1</sub>, y<sub>1</sub> = ek(x<sub>1</sub>)), (x<sub>2</sub>, y<sub>2</sub> = ek(x<sub>2</sub>)),…, and is able to choose x<sub>1</sub>, x<sub>2</sub>,… wants to know the key k.</span>
                 </div>
                 <div class="concept-item" data-name="Concept 5">
-                    <span class="concept-name">Concept 5:</span>
-                    <span class="concept-description">Explanation of Concept 5:</span>
+                    <span class="concept-name">Chosen-Ciphertext attack:</span>
+                    <span class="concept-description">Attacker knows some plaintext-ciphertext pairs (x<sub>1</sub>, y<sub>1</sub> = ek(x<sub>1</sub>)), (x<sub>2</sub>, y<sub>2</sub> = ek(x<sub>2</sub>)),…, and is able to choose y<sub>1</sub>, y<sub>2</sub>,… wants to know the key k.</span>
                 </div>
                 <div class="concept-item" data-name="Concept 6">
-                    <span class="concept-name">Concept 6:</span>
-                    <span class="concept-description">Explanation of Concept 6:</span>
+                    <span class="concept-name">Computationally secure:</span>
+                    <span class="concept-description">The system is considered secure if the best possible algorithm to attack it requires a prohibitively large number of computations.</span>
                 </div>
                 <div class="concept-item" data-name="Concept 7">
-                    <span class="concept-name">Concept 7:</span>
-                    <span class="concept-description">Explanation of Concept 7:</span>
+                    <span class="concept-name">Clock-controlled shift register key stream generator:</span>
+                    <span class="concept-description">Combines multiple smaller LFSRs to generate a significantly longer pseudo-random key stream z<sub>i</sub>. Types include stop-and-go, alternating step, and shrinking.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 8">
+                    <span class="concept-name">Chinese Remainder Theorem:</span>
+                    <span class="concept-description">Reduces the complexity of exponentiation by employing smaller sized operands. Assume M = m<sub>1</sub>*m<sub>2</sub>*m<sub>3</sub>*...*m<sub>t</sub> where all m<sub>i</sub> are pairwise relatively prime. Given vectors x<sub>i</sub> = X (mod m<sub>i</sub>), X mod M can be uniquely reconstructed.</span>
+                </div>
+                <div class="concept-item" data-name="Concept 9">
+                    <span class="concept-name">Cyclic group:</span>
+                    <span class="concept-description">A finite group G containing element alpha with max order, alpha being called a generator of G. The number of generators in G is phi(|G|). For every element a in G, a<sup>|G|</sup> = 1, and the order of a evenly divides |G|.</span>
                 </div>
             </div>
 
-            <!-- Add more sections as needed -->
+            <!-- D Section -->
+             
 
         </div>
     </div>
