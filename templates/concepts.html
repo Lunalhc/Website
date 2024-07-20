@@ -71,7 +71,7 @@
                 </div>
                 <div class="concept-item" data-name="Concept 14">
                     <span class="concept-name">Asynchronous key stream generator:</span>
-                    <span class="concept-description"><span class="concept-description">Uses ciphertext y<sub>i</sub> as feedback term.</span>
+                    <span class="concept-description">Uses ciphertext y<sub>i</sub> as feedback term.</span>
                 </span>
                 </div>
                 <div class="concept-item" data-name="Concept 15">
@@ -217,24 +217,99 @@
                 <div class="concept-item">
                     <span class="concept-name">Exponentiation in RSA:</span>
                     <span class="concept-description">Repeated application of group operation, e.g., multiplication to an element x in the Ring Z<sub>n</sub>.</span>
-                </div>
-                </div>            
+                </div>          
             </div>
 
             <!-- F Section -->
             <div class="concept-section">
                 <h2 class="section-title">F:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Feistel network:</span>
+                    <span class="concept-description">A general method of transforming a function into a permutation. Basic Feistel network divides the data block into 2 halves, with one operating on the other. General Feistel network—for larger data blocks—performs a circular right shift (with same f-function) instead of swapping the halves. Requires multiple rounds to input all the sub-blocks to the f-function.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">f-function:</span>
+                    <span class="concept-description">Uses one of the halves of the data block and a key to create a pseudo-random bit stream that is used to encrypt or decrypt the other half. Basic operations include XOR, AND, OR, Mod, shift, rotation, data-dependent rotation, multiplication in a Galois field, mod inversion, lookup table.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Field:</span>
+                    <span class="concept-description">A ring (addition and multiplication) in which there exists an inverse for all elements except zero.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Finite field:</span>
+                    <span class="concept-description">A field with a finite number of elements.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Fermat’s little theorem:</span>
+                    <span class="concept-description">Extends Euler’s theorem when m is prime and denoted as p. Since &#x3C6;(p) = p-1, a<sup>p-1</sup> &#x2261; 1 (mod p). Then a<sup>-1</sup> &#x2261; a<sup>p-2</sup> (mod p). Can be also applied to nonzero element A(x) within GF(p<sup>m</sup>). A<sup>-1</sup>(x) &#x2261; A(x)<sup>p<sup>m-2</sup></sup> mod P(x).</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Finite group:</span>
+                    <span class="concept-description">Denoted as G, has a finite number of elements g. Operation denoted as ○. The cardinality of the finite group G is the number of elements in G, denoted as |G| = g. Order of a in G is the smallest positive integer &theta; such that a○a○…○a = e. When G is formed by Z<sub>p</sub><sup>*</sup>, the max order of a is p - 1.</span>
+                </div>           
             </div>
 
             <!-- G Section -->
             <div class="concept-section">
                 <h2 class="section-title">G:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Galois Field:</span>
+                    <span class="concept-description">A finite field GF(p) where all arithmetic in the field is performed modulo p (prime).</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Group:</span>
+                    <span class="concept-description">A binary operation that has closure, associativity, identity, and inverse.</span>
+                </div>
             </div>
 
             <!-- H Section -->
             <div class="concept-section">
                 <h2 class="section-title">H:</h2>
+                <!-- Add H concepts here -->
             </div>
+
+            <!-- I Section -->
+            <div class="concept-section">
+                <h2 class="section-title">I:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">IV (Initialization Vector):</span>
+                    <span class="concept-description">A random string that is used as a third input in addition to the key and plaintext. AES-CBC IVs are always 128 bits long (16 bytes).</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Improved K-ary Method:</span>
+                    <span class="concept-description">Computes and stores only the values of x raised to odd exponents. In the precomputation stage, values such as x<sup>1</sup>, x<sup>3</sup>, ..., x<sup>2<sup>k</sup>-1</sup> are generated and stored. X<sup>2</sup> is also generated and used. The exponentiation stage, similar to K-ary, begins with x<sup>e<sub>t-1</sub></sup> when e<sub>t-1</sub> is odd, already computed from the precomputation stage, operates the same as K-ary. When e<sub>j</sub> is even, x<sup>e<sub>j</sub></sup> is not available from the precomputation stage, but can be represented as e<sub>k-1</sub>e<sub>k-2</sub>…e<sub>h</sub>0…0 (with h trailing zeros and a non-zero bit pattern of length k-h bits, which must be odd).</span>
+                </div>
+            </div>
+
+            <!-- J Section -->
+            <div class="concept-section">
+                <h2 class="section-title">J:</h2>
+                <!-- Add J concepts here -->
+            </div>
+
+            <!-- K Section -->
+            <div class="concept-section">
+                <h2 class="section-title">K:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Known-Plaintext Attack:</span>
+                    <span class="concept-description">Attacker knows some plaintext-ciphertext pairs (x<sub>1</sub>, y<sub>1</sub> = e<sub>k</sub>(x<sub>1</sub>)), (x<sub>2</sub>, y<sub>2</sub> = e<sub>k</sub>(x<sub>2</sub>)),…, and wants to know the key k.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Key Whitening:</span>
+                    <span class="concept-description">Increases a block cipher’s security versus exhaustive key search attacks by increasing the key size without modifying the block cipher itself. Operates on the plaintext block prior to and following encryption.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Karatsuba-Ofman Multiplication Algorithm:</span>
+                    <span class="concept-description">Let A(x) = a<sub>n-1</sub> * x<sup>n-1</sup> + … + a<sub>n/2</sub> * x<sup>n/2</sup> + a<sub>n/2 -1</sub> * x<sup>n/2 -1</sup> + … + a<sub>0</sub>. Rewrite A(x) as A<sub>h</sub>(x) + A<sub>l</sub>(x), where A<sub>h</sub>(x) represents the upper, and A<sub>l</sub>(x) the lower coefficients of A(x). Then A(x) = A<sub>h</sub>(x) * x<sup>n/2</sup> + A<sub>l</sub>(x), and similarly for B(x). Resulting in C(x) = A(x) * B(x) = A\<sub>h</sub>(x) * Bh(x) * x<sup>n</sup> + [A<sub>l</sub>(x) * B<sub>h</sub>(x) + A<sub>h</sub>(x) * B<sub>l</sub>(x)] * x<sup>n/2</sup> + A<sub>l</sub>(x) * B<sub>l</sub>(x).</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">K-ary Method:</span>
+                    <span class="concept-description">An improvement of square-and-multiply algorithm, composed of two stages: precomputation and exponentiation. Precomputation stage generates and stores values x<sup>0</sup>, x<sup>1</sup>, x<sup>2</sup>, ..., x<sup>2<sup>k</sup>-1</sup>. Exponentiation stage evaluates i as a binary value in a grouping of k bits, denoted as e<sub>j</sub>, ranging from 0 to 2<sup>k</sup>-1, and builds x<sub>i</sub> interactively, beginning with the value x<sup>e<sub>t-1</sub></sup> where e<sub>t-1</sub> is the k most significant bits of i.</span>
+                </div>
+            </div>
+
+
+
 
         </div>
     </div>
