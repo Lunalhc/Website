@@ -306,12 +306,238 @@
                     <span class="concept-name">K-ary Method:</span>
                     <span class="concept-description">An improvement of square-and-multiply algorithm, composed of two stages: precomputation and exponentiation. Precomputation stage generates and stores values x<sup>0</sup>, x<sup>1</sup>, x<sup>2</sup>, ..., x<sup>2<sup>k</sup>-1</sup>. Exponentiation stage evaluates i as a binary value in a grouping of k bits, denoted as e<sub>j</sub>, ranging from 0 to 2<sup>k</sup>-1, and builds x<sub>i</sub> interactively, beginning with the value x<sup>e<sub>t-1</sub></sup> where e<sub>t-1</sub> is the k most significant bits of i.</span>
                 </div>
+                <div class="concept-item">
+                    <span class="concept-name">Feistel Network:</span>
+                    <span class="concept-description">A general method of transforming a function into a permutation. Basic Feistel network divides the data block into 2 halves, one operating on the other. General Feistel network uses circular right shifts instead of swapping halves, requiring multiple rounds to input all sub-blocks to the f-function.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">f-Function:</span>
+                    <span class="concept-description">Uses one of the halves of the data block and a key to create a pseudo-random bit stream, used to encrypt or decrypt the other half. Basic operations include XOR, AND, OR, Mod, shift, rotation, data-dependent rotation, multiplication in a Galois field, mod inversion, and lookup table.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Field:</span>
+                    <span class="concept-description">A ring (addition and multiplication) in which an inverse exists for all elements except zero.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Finite Field:</span>
+                    <span class="concept-description">A field with a finite number of elements.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Fermat’s Little Theorem:</span>
+                    <span class="concept-description">Extends Euler’s theorem when m is prime (denoted as p). Since φ(p) = p-1, a<sup>p-1</sup> ≡ 1 (mod p). Then a<sup>-1</sup> = a<sup>p-2</sup> (mod p). Can be also applied to nonzero element A(x) within GF(p<sup>m</sup>). A<sup>-1</sup>(x) = A(x)<sup>p<sup>m</sup>-2</sup> (mod P(x)).</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Finite Group:</span>
+                    <span class="concept-description">Denoted as G, has a finite number of elements g. Operation denoted as ○. The cardinality of the finite group G is the number of elements in G, denoted as |G| = g. The order of a in G is the smallest positive integer θ such that a○a○…○a = e. When G is formed by Z<sub>p</sub>*, the max order of a is p - 1.</span>
+                </div>
             </div>
 
+            <!-- L Section -->
+            <div class="concept-section">
+                <h2 class="section-title">L:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">LFSR (Linear Feedback Shift Registers):</span>
+                    <span class="concept-description">Used to generate key streams. m - number of flip flops; K<sub>i</sub> – elements stored in flip-flops; D<sub>i</sub> = Q<sub>i+1</sub>; C<sub>i</sub> – feedback coefficient controlling an on-off switch; Polynomial form: P(x) = x<sup>m</sup> + (c<sub>m-1</sub> * x<sup>m-1</sup>) + … + (c<sub>1</sub> * x) + c<sub>0</sub>.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Latticed-based post-quantum cryptography:</span>
+                    <span class="concept-description">Bad basis as public key, good basis as private key, making it hard to solve the shortest/closest vector problem.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Learning with errors:</span>
+                    <span class="concept-description">Used in RSA. Adds errors to the equations so that it’s difficult to find the plaintext without the private key (secret vector).</span>
+                </div>
+            </div>
 
+            <!-- M Section -->
+            <div class="concept-section">
+                <h2 class="section-title">M:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">MD5:</span>
+                    <span class="concept-description">Message Digest algorithm that converts any length of document into a large number occupying a fixed amount of space (15 bytes).</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Miner:</span>
+                    <span class="concept-description">In blockchain technology, a miner is awarded bitcoins for producing a new block, which is computationally difficult to generate.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Meet-in-the-middle Attack:</span>
+                    <span class="concept-description">Used against multiple encryptions like DES by computing DES<sub>k_i</sub>(x<sub>0</sub>) = z<sub>i</sub> for all possible k<sub>i</sub>, storing each z<sub>i</sub> and associated k<sub>i</sub> in memory, and then checking if computed (DES<sub>k_j</sub>(y<sub>0</sub>))<sup>-1</sup> = z<sub>j</sub> matches any stored z<sub>i</sub> to find candidate key pairs.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">MAC Generation:</span>
+                    <span class="concept-description">Once k<sub>1</sub> and k<sub>2</sub> are generated, divide message M into n blocks where n = [M/b], resulting in M = M<sub>1</sub> || M<sub>2</sub> || … || M<sub>n-1</sub> || M<sub>n</sub>*. If M<sub>n</sub>* is a complete block, M<sub>n</sub> = M<sub>n</sub>* XOR k<sub>1</sub>. If incomplete, it's padded. Using k and initial value C<sub>0</sub> = 0, C<sub>i</sub> = e<sub>k</sub>(C<sub>i-1</sub> XOR M<sub>i</sub>) is computed for each block to generate the MAC.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Montgomery Arithmetic:</span>
+                    <span class="concept-description">Efficient method for modular arithmetic by transforming integers into an alternate domain where base10 division isn't needed. Defines the m-residue of an integer a as a˜ where a˜ = a * R (mod m), and R is the radix, thus avoiding division in its arithmetic operations.</span>
+                </div>
+            </div>
 
+            <!-- N Section -->
+            <div class="concept-section">
+                <h2 class="section-title">N:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Nonce:</span>
+                    <span class="concept-description">A random value that miners try to find to produce an acceptable hash.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">NFT (Non-Fungible Token):</span>
+                    <span class="concept-description">Turns digital assets into unique ones by creating a digital signature that defines ownership, which can be bought or sold. Not interchangeable, each represents unique assets owned by a specific person. Contains distinguishable information, easily verifiable. Creates a blockchain-based digital certificate to give the work a unique identity.</span>
+                </div>
+            </div>
 
-        </div>
+            <!-- O Section -->
+            <div class="concept-section">
+                <h2 class="section-title">O:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">One-Time Pad:</span>
+                    <span class="concept-description">X = {x₀, x₁, …} ∈ P; Y = {y₀, y₁, …} ∈ C; K = {k₀, k₁, …} ∈ K; x<sub>i</sub>, y<sub>i</sub>, k<sub>i</sub> ∈ {0,1}. Encryption: e<sub>k_i</sub>(x<sub>i</sub>) = (x<sub>i</sub> + k<sub>i</sub>) mod 2 = y<sub>i</sub>; Decryption: d<sub>k_i</sub>(y<sub>i</sub>) = (y<sub>i</sub> + k<sub>i</sub>) mod 2 = x<sub>i</sub>. Unconditionally secure if keys are used only once and are random.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">One-Way Function:</span>
+                    <span class="concept-description">Its forward function is easy to compute but the inverse transformation is difficult to compute. Examples include integer factorization and discrete logarithm, often easier to compute when a trapdoor is open.</span>
+                </div>
+            </div>
+
+            <!-- P Section -->
+            <div class="concept-section">
+                <h2 class="section-title">P:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Parameter Selection (in RSA):</span>
+                    <span class="concept-description">The process of selecting p and q, typically via Monte Carlo algorithm (e.g., Miller-Rabin algorithm, faster than integer factorization). Selecting b via exponentiation algorithm. Selecting a via extended Euclidean algorithm or binary extended Euclidean algorithm.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Public-Key Algorithm:</span>
+                    <span class="concept-description">Uses a public key for encryption and verification of digital signatures, and a private key for decryption and generating digital signatures.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Prime Field:</span>
+                    <span class="concept-description">A field with a number of elements p that is a prime. Z<sub>p</sub> = {0,1,2, …, p-1}. An additive group over Z<sub>p</sub>. A multiplicative group over Z<sub>p</sub>* guarantees the existence of an inverse for all elements except zero.</span>
+                </div>
+            </div>
+
+            <!-- Q Section -->
+            <div class="concept-section">
+                <h2 class="section-title">Q:</h2>
+                <!-- Additional Q concepts can be listed here as needed -->
+            </div>
+
+            <!-- R Section -->
+            <div class="concept-section">
+                <h2 class="section-title">R:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">RC4:</span>
+                    <span class="concept-description">A stream cipher, key length ranges from 40 to 256 bits. Known for its simplicity but has several vulnerabilities. Previously used by SSL and WEP protocols.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Rijndael (AES):</span>
+                    <span class="concept-description">Maps plaintext into a rectangular 4 x Nb array of bytes. Part of the AES standard.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">RSA:</span>
+                    <span class="concept-description">Has two stages, setup and encryption/decryption. Setup involves selecting two large prime numbers, computing n = p*q, phi(n) = (p-1)(q-1), selecting b, and computing a = b<sup>-1</sup> mod phi(n). The public key is (n, b) and the private key is (p, q, a).</span>
+                </div>
+            </div>
+
+            <!-- S Section -->
+            <div class="concept-section">
+                <h2 class="section-title">S:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Second-preimage resistance:</span>
+                    <span class="concept-description">Even if one document producing a specific hash is known, it's still hard to find another document that produces the same hash.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Salt:</span>
+                    <span class="concept-description">A publicly known value mixed with a user’s password before hashing to enhance security.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Stream ciphers:</span>
+                    <span class="concept-description">Encrypt individual bits or bytes of plaintext directly as opposed to block ciphers that encrypt blocks of data.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Shannon’s properties for secure cryptosystems:</span>
+                    <span class="concept-description">Includes confusion, obscuring the relationship between plaintext, ciphertext, and key; and diffusion, spreading the influence of one plaintext or key bit across many ciphertext bits to complicate attempts at decryption.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Square-and-Multiply algorithm:</span>
+                    <span class="concept-description">An efficient method for exponentiation, evaluates the exponent bit by bit, squaring the base for each bit, and multiplying it by the base again if the bit is 1.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Sliding Window Method:</span>
+                    <span class="concept-description">Improves the efficiency of the square-and-multiply algorithm by minimizing the number of multiplications required.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Semi-weak keys (for DES):</span>
+                    <span class="concept-description">Identified 12 semi-weak keys (excluding the 4 weak keys). Encryption with one key is identical to decryption with the other. Results in all zeros, all ones, or patterns of alternating zeros and ones in C<sub>0</sub> and D<sub>0</sub> after PC-1. DES<sub>K_sw1</sub>(DES<sub>K_sw2</sub>(x)) = x.</span>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-name">Subgroup:</span>
+                    <span class="concept-description">A subset of a cyclic group where the elements themselves form a cyclic group under the same operation. An element &delta; in a group G with order &theta; generates a subgroup that is a cyclic group with &theta; elements. &theta; evenly divides |G|.</span>
+                </div>
+            </div>
+            
+            <!-- T Section -->
+            <div class="concept-section">
+                <h2 class="section-title">T:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Twofish:</span>
+                    <span class="concept-description">A symmetric block cipher that supports key lengths of 128, 192, or 256 bits. Utilizes a Feistel network structure, dividing the data into two halves and applying multiple encryption rounds. Known for strong security without significant vulnerabilities.</span>
+                </div>
+            </div>
+
+            <!-- U Section -->
+            <div class="concept-section">
+                <h2 class="section-title">U:</h2>
+
+            </div>
+
+            <!-- V Section -->
+            <div class="concept-section">
+                <h2 class="section-title">V:</h2>
+
+            </div>
+
+            <!-- W Section -->
+            <div class="concept-section">
+                <h2 class="section-title">W:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Weak Keys (for DES):</span>
+                    <span class="concept-description">Four identified keys cause the bits of C<sub>0</sub> and D<sub>0</sub> to be either all zeros or all ones after PC-1. DES<sub>K_w</sub>(DES<sub>K_w</sub>(x)) = x.</span>
+                </div>
+            </div>
+            
+            <!-- X Section -->
+            <div class="concept-section">
+                <h2 class="section-title">X:</h2>
+
+            </div>
+
+            <!-- Y Section -->
+            <div class="concept-section">
+                <h2 class="section-title">Y:</h2>
+
+            </div>
+
+            <!-- Z Section -->
+            <div class="concept-section">
+                <h2 class="section-title">Z:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">Z<sub>n</sub>*:</span>
+                    <span class="concept-description">The set of integers i, 0 &le; i &le; n, such that gcd(i, n) = 1.</span>
+                </div>
+            </div>
+
+            <!-- # Section -->
+            <div class="concept-section">
+                <h2 class="section-title">#:</h2>
+                <div class="concept-item">
+                    <span class="concept-name">3DES:</span>
+                    <span class="concept-description">Uses a 168-bit key derived from three 56-bit keys used sequentially. Encrypts data in 64-bit blocks by encrypting with the first key, decrypting with the second, and encrypting again with the third. Offers enhanced security over DES at the cost of reduced speed and efficiency due to triple encryption.</span>
+                </div>
+            </div>
+
+  
     </div>
     <script src="\static\concepts.js"></script>
 </body>
