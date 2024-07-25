@@ -70,8 +70,14 @@
         </div>
     </div>
     <div class="cracker-container">
-        <label for="cipher-text">Enter Ciphertext to Crack:</label>
-        <input type="text" id="cipher-text" placeholder="Cipher text here">
+        <label for="cipher-text">Let's Crack it:</label>
+        <select id="cracking-method">
+            <option value="" selected disabled>-- Select Method to Crack --</option>
+            <option value="caesar">Caesar Cipher</option>
+            <option value="rsa">RSA</option>
+            <option value="aes">AES</option>
+        </select>
+        <input type="text" id="cipher-text" placeholder="Enter cipher text here">
         <button id="crack-button">Crack</button>
         <div id="cracker-results-container" style="display: none;">
             <label for="cracker-results">Possible Decryptions:</label>

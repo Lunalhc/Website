@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 import string
 from flask_cors import CORS
+from nltk.corpus import words
+
 app = Flask(__name__)
 CORS(app)
-from nltk.corpus import words
 english_words = set(word.lower() for word in words.words())
 
 @app.route('/')
@@ -46,12 +47,18 @@ def caesar_decipher(text, shift):
     return caesar_cipher(text, -shift) 
 
 #---------------------------------------------------------------------------------------
+
 @app.route('/crack', methods=['POST'])
 def crack():
     data = request.get_json()
     ciphertext = data['cipher_text']
-    possible_texts = crack_caesar(ciphertext)
-    return jsonify(possible_texts)
+    method = data.get('method')
+    if method == 'caesar':
+        possible_texts = crack_caesar(ciphertext)
+        return jsonify(possible_texts)
+    else:
+        return jsonify({'error': f'Cracking method {method} not implemented'}), 501
+    
 
 def crack_caesar(cipher_text):
     results = []
@@ -61,7 +68,8 @@ def crack_caesar(cipher_text):
         results.append({'shift': shift, 'decoded': decoded, 'word_count': word_count})
     # Sort by the number of English words found in descending order
     results.sort(key=lambda x: x['word_count'], reverse=True)
-    return results[:3]  # Return top 5 possible decryptions
+    return results[:3]  
+
 #-----------------------------------------------------------------------------------------------------------------------------
 
 @app.route('/concepts')
