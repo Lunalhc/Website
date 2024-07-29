@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import string
 from flask_cors import CORS
+import nltk
+nltk.download('words')
+
 from nltk.corpus import words
 
 app = Flask(__name__)
