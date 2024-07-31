@@ -52,9 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Video control enhancements
-        video.autoplay = false; // Ensure autoplay is off unless explicitly played
-        videoContainer.style.display = 'none'; // Start with the video container hidden
+        
 
         // Handle video pop-up
         gifImage.addEventListener('click', () => {
