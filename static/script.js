@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function encryptCaesarCipher() {
         const shift = parseInt(document.getElementById('shift').value) || 0;
         const plaintext = plaintextInput.value;
-        fetch('https://lunalovesdoggies-423f02c3b441.herokuapp.com/', {
+        fetch('https://lunalovesdoggies-423f02c3b441.herokuapp.com/encrypt', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ plaintext, shift })
