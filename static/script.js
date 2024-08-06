@@ -87,38 +87,48 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Encryption method selection handling
     encryptionMethod.addEventListener('change', () => {
-        parametersContainer.innerHTML = ''; // Clear previous inputs
-        const method = encryptionMethod.value;
-        if (method === 'caesar') {
-            parametersContainer.innerHTML = `
-                <label for="shift">Shift:</label>
-                <input type="number" id="shift" placeholder="Enter shift value">
-            `;
-            plaintextInput.style.display = 'block';
-            goButton.style.display = 'block';
-        } else {
-            // Placeholder for other methods
-            parametersContainer.innerHTML = '<p>Feature under development.</p>';
-            plaintextInput.style.display = 'none';
-            goButton.style.display = 'none';
+        switch (encryptionMethod.value) {
+            case 'caesar':
+                parametersContainer.innerHTML = `
+                    <label for="shift">Shift:</label>
+                    <input type="number" id="shift" placeholder="Enter shift value">
+                `;
+                break;
+            case 'affine':
+                parametersContainer.innerHTML = `
+                    <label for="a">A (Multiplier):</label>
+                    <input type="number" id="a" placeholder="Enter A value">
+                    <label for="b">B (Shift):</label>
+                    <input type="number" id="b" placeholder="Enter B value">
+                `;
+                break;
+            default:
+                parametersContainer.innerHTML = '<p>Feature under development.</p>';
         }
+        plaintextInput.style.display = 'block';
+        goButton.style.display = 'block';
     });
+
 
     // Encrypt text when "Go" button is clicked
     goButton.addEventListener('click', () => {
-        if (encryptionMethod.value === 'caesar') {
-            encryptCaesarCipher();
-        }
-    });
-
-    function encryptCaesarCipher() {
-        const shift = parseInt(document.getElementById('shift').value) || 0;
+        const method = encryptionMethod.value;
         const plaintext = plaintextInput.value;
+        let body = { method, plaintext };
+
+        if (method === 'caesar') {
+            body['shift'] = parseInt(document.getElementById('shift').value);
+        } else if (method === 'affine') {
+            body['a'] = parseInt(document.getElementById('a').value);
+            body['b'] = parseInt(document.getElementById('b').value);
+        }
+
         fetch('https://lunalovesdoggies-423f02c3b441.herokuapp.com/encrypt', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ plaintext, shift })
+            body: JSON.stringify(body)
         })
+
         .then(response => response.json())
         .then(data => {
             resultDisplay.textContent = data.encrypted;
@@ -127,7 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Error:', error);
         });
-    }
+    
+    
+    });
 
 
 //---------------------decryption-----------------------------------------------

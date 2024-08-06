@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import string
 from flask_cors import CORS
 import nltk
 nltk.download('words')
@@ -17,10 +16,19 @@ def home():
 @app.route('/encrypt', methods=['POST'])
 def encrypt():
     data = request.get_json()
+    method = data.get('method', 'caesar')
     plaintext = data['plaintext']
-    shift = int(data['shift'])
-    encrypted_text = caesar_cipher(plaintext, shift)
+    if method == 'caesar':
+        shift = int(data['shift'])
+        encrypted_text = caesar_cipher(plaintext, shift)
+    elif method == 'affine':
+        a = int(data['a'])
+        b = int(data['b'])
+        encrypted_text = affine_encrypt(plaintext, a, b)
+    else:
+        return jsonify({'error': 'Encryption method not supported'}), 400
     return jsonify(encrypted=encrypted_text)
+
 
 @app.route('/decrypt', methods=['POST'])
 def decrypt():
@@ -46,10 +54,21 @@ def caesar_cipher(text, shift):
             result += char
     return result
 
+def affine_encrypt(text, a, b):
+    result = ""
+    for char in text:
+        if char.isalpha():
+            base = ord('a') if char.islower() else ord('A')
+            result += chr((a * (ord(char) - base) + b) % 26 + base)
+        else:
+            result += char
+    return result
+
+
 def caesar_decipher(text, shift):
     return caesar_cipher(text, -shift) 
 
-#---------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------
 
 @app.route('/crack', methods=['POST'])
 def crack():

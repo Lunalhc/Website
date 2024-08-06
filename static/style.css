@@ -211,3 +211,9 @@ body {
     outline: none; /* Removes the default focus outline */
 }
 
+#parameters-container input {
+    width: 90%;  /* Adjust width to fit your design */
+    margin: 5px auto;  /* Center and add space around inputs */
+    display: block;  /* Ensure inputs are block-level elements */
+}
+
