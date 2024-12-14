@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body['b'] = parseInt(document.getElementById('b').value);
         }
 
-        fetch('https://lunalovesdoggies-423f02c3b441.herokuapp.com/encrypt', {
+        fetch('https://lunalovesdoggies-423f02c3b441-632618c1afc8.herokuapp.com//encrypt', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(body)
