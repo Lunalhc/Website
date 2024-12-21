@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeVideoButton = document.getElementById('close-video');
     let clickCount = 0;
 
-    resetEncryptionMethod();
-
     const encryptionMethod = document.getElementById('encryption-method')
     const parametersContainer = document.getElementById('parameters-container');
 
@@ -23,16 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const decryptionResultContainer = document.getElementById('decryption-result-container');
     const decryptButton = document.getElementById('decrypt-button');
 
-    function resetEncryptionMethod() {
-        // Reset the dropdown for encryption method
-        encryptionMethod.value = "";
-        parametersContainer.innerHTML = '<p>Select an encryption method to see options.</p>';
-        plaintextInput.style.display = 'none';
-        goButton.style.display = 'none';
-        resultContainer.style.display = 'none';
-    }
 
-    
     if (gifImage) {
         images.forEach(image => {
             image.addEventListener('mouseover', () => {
