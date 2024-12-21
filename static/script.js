@@ -159,19 +159,36 @@ document.addEventListener('DOMContentLoaded', () => {
             ciphertextInput.style.display = 'block';
             decryptButton.style.display = 'block';
         }
-    });
-    decryptButton.addEventListener('click', () => {
-        const shift = parseInt(document.getElementById('decrypt-shift').value);
-        const ciphertext = ciphertextInput.value;
 
-        // Adjust the path if necessary
+        else if (decryptionMethod.value === 'affine') {
+        decryptionParametersContainer.innerHTML = `
+            <label for="a-inverse">A Inverse (Multiplier):</label>
+            <input type="number" id="a-inverse" placeholder="Enter A Inverse value">
+            <label for="b">B (Shift):</label>
+            <input type="number" id="b" placeholder="Enter B value">
+        `;
+    }
+    ciphertextInput.style.display = 'block';
+    decryptButton.style.display = 'block';
+    });
+
+    decryptButton.addEventListener('click', () => {
+        
+        const method = decryptionMethod.value;
+        const ciphertext = ciphertextInput.value;
+        let body = { method, ciphertext };
+    
+        if (method === 'caesar') {
+            body['shift'] = parseInt(document.getElementById('decrypt-shift').value);
+        } else if (method === 'affine') {
+            body['a_inverse'] = parseInt(document.getElementById('a-inverse').value);
+            body['b'] = parseInt(document.getElementById('b').value);
+        }
+    
         fetch('/decrypt', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                ciphertext: ciphertext,
-                shift: shift
-            })
+            body: JSON.stringify(body)
         })
         .then(response => response.json())
         .then(data => {
