@@ -7,12 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeVideoButton = document.getElementById('close-video');
     let clickCount = 0;
 
-    const encryptionMethod = document.getElementById('encryption-method');
-    encryptionMethod.value = '';
+    resetEncryptionMethod();
 
+    const encryptionMethod = document.getElementById('encryption-method')
     const parametersContainer = document.getElementById('parameters-container');
-    parametersContainer.innerHTML = '';
-    
+
     const plaintextInput = document.getElementById('plaintext');
     const resultContainer = document.getElementById('result-container');
     const resultDisplay = document.getElementById('result'); // Make sure this ID exists in your HTML
@@ -24,6 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const decryptionResultContainer = document.getElementById('decryption-result-container');
     const decryptButton = document.getElementById('decrypt-button');
 
+    function resetEncryptionMethod() {
+        // Reset the dropdown for encryption method
+        encryptionMethod.value = "";
+        parametersContainer.innerHTML = '<p>Select an encryption method to see options.</p>';
+        plaintextInput.style.display = 'none';
+        goButton.style.display = 'none';
+        resultContainer.style.display = 'none';
+    }
+
+    
     if (gifImage) {
         images.forEach(image => {
             image.addEventListener('mouseover', () => {
