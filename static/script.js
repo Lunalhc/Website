@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let clickCount = 0;
 
     const encryptionMethod = document.getElementById('encryption-method');
+    encryptionMethod.value = '';
+
     const parametersContainer = document.getElementById('parameters-container');
+    parametersContainer.innerHTML = '';
+    
     const plaintextInput = document.getElementById('plaintext');
     const resultContainer = document.getElementById('result-container');
     const resultDisplay = document.getElementById('result'); // Make sure this ID exists in your HTML
