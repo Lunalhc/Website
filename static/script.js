@@ -162,13 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         else if (decryptionMethod.value === 'affine') {
         decryptionParametersContainer.innerHTML = `
-            <label for="a-inverse">A Inverse (Multiplier):</label>
-            <input type="number" id="a-inverse" placeholder="Enter A Inverse value">
-            <label for="b">B (Shift):</label>
+            <label for="a">A (Multiplier):</label><br>
+            <input type="number" id="a" placeholder="Enter A value"><br>
+            <label for="b">B (Shift):</label><br>
             <input type="number" id="b" placeholder="Enter B value">
         `;
     }
-    ciphertextInput.style.display = 'block';
+    ciphertextInput.style.display = 'block';   
     decryptButton.style.display = 'block';
     });
 
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (method === 'caesar') {
             body['shift'] = parseInt(document.getElementById('decrypt-shift').value);
         } else if (method === 'affine') {
-            body['a_inverse'] = parseInt(document.getElementById('a-inverse').value);
+            body['a'] = parseInt(document.getElementById('a').value);
             body['b'] = parseInt(document.getElementById('b').value);
         }
     
